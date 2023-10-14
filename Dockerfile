@@ -2,8 +2,8 @@ FROM kasmweb/kali-rolling-desktop:1.14.0
 USER root
 
 RUN apt-get update && apt-get upgrade -y
-RUN sed -i 's/vncserver/vncserver -disableBasicAuth/g' /dockerstartup/vnc_startup.sh
 
+ENV VNCOPTIONS -disableBasicAuth
 ENV HOME /home/kasm-default-profile
 ENV STARTUPDIR /dockerstartup
 ENV INST_SCRIPTS $STARTUPDIR/install
