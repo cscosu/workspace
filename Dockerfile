@@ -1,4 +1,4 @@
-FROM kasmweb/kali-rolling-desktop:1.14.0
+FROM docker.io/kasmweb/kali-rolling-desktop:1.14.0
 USER root
 
 RUN apt-get update && apt-get upgrade -y
