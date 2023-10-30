@@ -1,8 +1,41 @@
 services:
-  workspace:
+  machine1:
     build: .
+    hostname: machine1
     ports:
       - "6901:6901"
-    environment:
-      - VNC_PW=password
     shm_size: 512m
+    privileged: true
+#     labels:
+#       - "traefik.enable=true"
+#       - "traefik.http.routers.machine1.rule=Host(`localhost`) && PathPrefix(`/machine1`)"
+#       - "traefik.http.routers.machine1.entrypoints=websecure"
+#       - "traefik.http.routers.machine1.tls=true"
+#       - "traefik.http.routers.machine1.tls.certresolver=myresolver"
+#       - "traefik.http.services.machine1.loadbalancer.server.port=6901"
+#       - "traefik.http.services.machine1.loadbalancer.server.scheme=https"
+#     networks:
+#       - traefik
+#   traefik:
+#     image: traefik
+#     command:
+#       - "--api.insecure=true"
+#       - "--providers.docker=true"
+#       - "--entrypoints.web.address=:80"
+#       - "--entrypoints.websecure.address=:443"
+#       - "--serversTransport.insecureSkipVerify=true"
+#       - "--entrypoints.websecure.http.tls=true"
+#       - "--log.level=DEBUG"
+#     ports:
+#       - "80:80"
+#       - "8080:8080"
+#       - "443:443"
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock
+#       - ./certs:/certs
+#     networks:
+#       - traefik
+
+# networks:
+#   traefik:
+#     driver: bridge

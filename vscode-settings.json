@@ -1,0 +1,8 @@
+{
+  "window.titleBarStyle": "custom",
+  "editor.formatOnSave": true,
+  "security.workspace.trust.enabled": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}
